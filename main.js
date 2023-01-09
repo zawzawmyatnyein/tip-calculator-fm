@@ -124,4 +124,7 @@ resetBtn.addEventListener('click', function () {
   totalAmountEl.textContent = '$0.00';
   resetBtn.setAttribute('disabled', 'true');
   tipBtns.forEach((btn) => btn.classList.remove('bg-strong-cyan', 'text-dark-cyan'));
+  removeError(billInput, errorBillEl);
+  removeError(customInput, errorCustomEl);
+  removeError(peopleInput, errorPeopleEl);
 });
