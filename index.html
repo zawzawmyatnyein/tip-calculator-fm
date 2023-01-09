@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/images/favicon-32x32.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style.css">
+    <title>Tip Calculator</title>
+  </head>
+  <body class="font-mono font-bold bg-light-gray-cyan caret-strong-cyan lg:h-screen lg:flex lg:flex-col lg:gap-y-8 lg:justify-center">
+    <header class="flex justify-center py-10">
+        <img src="/images/logo.svg" alt="Logo of SPLITTER">
+    </header>
+
+    <main class="bg-white p-8 md:container mx-auto sm:px-16 space-y-8 rounded-t-2xl lg:w-3/4 xl:w-3/5 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:px-8 lg:rounded-2xl">
+        <div class="space-y-8">
+            <div class="flex flex-col gap-y-2">
+                <div class="flex justify-between">
+                    <label class="text-dark-gray-cyan" for="bill">Bill</label>
+                    <div id="error-bill" class="text-red-400 hidden"></div>
+                </div>
+                <div class="relative">
+                    <input
+                        type="text" id="bill" name="bill" placeholder="0"
+                        class="max-w-full min-w-full border-none bg-light-gray rounded-md text-2xl text-end text-dark-cyan placeholder:absolute placeholder:right-4 placeholder:text-gray-cyan focus:ring-2 focus:ring-strong-cyan"
+                    >
+                    <img class="absolute top-1/2 -translate-y-1/2 left-4 w-3" src="images/icon-dollar.svg">
+                </div>
+            </div>
+            <div class="flex flex-col gap-y-2">
+                <label class="text-dark-gray-cyan">Select Tip %</label>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                    <button data-tip-percent="5" type="button" class="tip-btn py-2 bg-dark-cyan hover:bg-strong-cyan/50 rounded-md text-2xl text-light-gray hover:text-dark-cyan border-transparent focus:outline-none focus:ring-2 focus:ring-strong-cyan focus:ring-offset-2">5%</button>
+                    <button data-tip-percent="10" type="button" class="tip-btn py-2 bg-dark-cyan hover:bg-strong-cyan/50 rounded-md text-2xl text-light-gray hover:text-dark-cyan border-transparent focus:outline-none focus:ring-2 focus:ring-strong-cyan focus:ring-offset-2">10%</button>
+                    <button data-tip-percent="15" type="button" class="tip-btn py-2 bg-dark-cyan hover:bg-strong-cyan/50 rounded-md text-2xl text-light-gray hover:text-dark-cyan border-transparent focus:outline-none focus:ring-2 focus:ring-strong-cyan focus:ring-offset-2">15%</button>
+                    <button data-tip-percent="25" type="button" class="tip-btn py-2 bg-dark-cyan hover:bg-strong-cyan/50 rounded-md text-2xl text-light-gray hover:text-dark-cyan border-transparent focus:outline-none focus:ring-2 focus:ring-strong-cyan focus:ring-offset-2">25%</button>
+                    <button data-tip-percent="50" type="button" class="tip-btn py-2 bg-dark-cyan hover:bg-strong-cyan/50 rounded-md text-2xl text-light-gray hover:text-dark-cyan border-transparent focus:outline-none focus:ring-2 focus:ring-strong-cyan focus:ring-offset-2">50%</button>
+                    <!-- bg-strong-cyan text-dark-cyan-->
+                    <input id="custom" type="text" class="border-none bg-light-gray rounded-md text-2xl text-end text-dark-cyan placeholder:absolute placeholder:right-4 placeholder:text-gray-cyan focus:ring-2 focus:ring-strong-cyan" placeholder="Custom">
+                </div>
+                <div id="error-custom" class="text-red-400 self-end hidden"></div>
+            </div>
+            <div class="flex flex-col gap-y-2">
+                <div class="flex justify-between">
+                    <label class="text-dark-gray-cyan" for="people">Number of People</label>
+                    <div id="error-people" class="text-red-400 hidden"></div>
+                </div>
+                <div class="relative">
+                    <input
+                        type="text" id="people" name="people" placeholder="0"
+                        class="max-w-full min-w-full border-none bg-light-gray rounded-md text-2xl text-end text-dark-cyan placeholder:absolute placeholder:right-4 placeholder:text-gray-cyan focus:ring-2 focus:ring-strong-cyan"
+                    >
+                    <!--focus:ring-red-400-->
+                    <img class="absolute top-1/2 -translate-y-1/2 left-4 w-3" src="/images/icon-person.svg">
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-dark-cyan py-8 px-6 rounded-lg space-y-8 lg:flex lg:flex-col lg:justify-between">
+           <div class="space-y-8 lg:space-y-10">
+                <div class="flex justify-between items-center">
+                    <div>
+                        <div class="text-light-gray text-sm">Tip Amount</div>
+                        <div class="text-gray-cyan text-xs">/ person</div>
+                    </div>
+                    <div id="tipAmount" class="text-strong-cyan text-3xl lg:text-4xl">$0.00</div>
+                </div>
+                <div class="flex justify-between items-center">
+                    <div>
+                        <div class="text-light-gray text-sm">Total</div>
+                        <div class="text-gray-cyan text-xs">/ person</div>
+                    </div>
+                    <div id="totalAmount" class="text-strong-cyan text-3xl lg:text-4xl">$0.00</div>
+                </div>
+           </div>
+            <button
+                id="reset"
+                class="py-2 w-full uppercase text-xl text-dark-cyan disabled:bg-strong-cyan/30 disabled:text-dark-cyan/80 disabled:cursor-not-allowed bg-strong-cyan hover:brightness-110 rounded-md border-none focus:outline-none focus:ring-2 focus:ring-strong-cyan focus:ring-offset-dark-cyan focus:ring-offset-2"
+                disabled
+            >
+                Reset
+            </button>
+        </div>
+    </main>
+
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
